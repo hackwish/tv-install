@@ -1,0 +1,7 @@
+---
+
+- name: ohmyzsh
+  src: https://github.com/hackwish/ansible-ohmyzsh.git
+
+- name: cloudalchemy.node-exporter
+  src: cloudalchemy.node-exporter

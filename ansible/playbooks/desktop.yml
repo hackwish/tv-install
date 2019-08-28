@@ -1,0 +1,18 @@
+---
+- name: Run common
+  import_playbook: common.yml
+
+- name: Deploy Desktop with Ansible
+  hosts: desktop
+  become: yes
+
+  roles:
+    - ohmyzsh
+    - cloudalchemy.node-exporter
+
+  tasks:
+    - name: Reload Font cache
+      shell: fc-cache -fv
+
+    - name: Config git user
+      shell: git config --global color.ui true && git config --global user.email "{{ ansible_user_id }}@{{ ansible_fqdn }}" && git config --global user.name "{{ ansible_user_id }}"
